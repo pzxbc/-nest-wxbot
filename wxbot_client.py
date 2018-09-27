@@ -24,3 +24,7 @@ def send_group_msg(msg, to_group):
         if res['success'] is True:
             return True
     return False
+
+
+def send_job_group_msg(msg):
+    return send_group_msg(msg, '业务通知群')
