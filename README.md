@@ -2,7 +2,7 @@
 
 ### Python
 
-使用`wxbot_client.py`文件中的`send_friend_msg`, `send_group_msg`以及`send_job_group_msg`
+参考`wxbot_client_test.py`中的使用
 
 
 ### Matlab
