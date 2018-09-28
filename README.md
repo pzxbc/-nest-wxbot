@@ -9,19 +9,19 @@
 
 ### Matlab
 
-1. 给`Mr. Xi`好友发消息
+1\. 给`Mr. Xi`好友发消息
 
 ```matlab
 webwrite('http://192.168.1.129:5490/send-friend-msg', 'msg', 'test messages from matlab', 'to_user', 'Mr. Xi')
 ```
 
-2. 给`业务通知群`发送消息
+2\. 给`业务通知群`发送消息
 
 ```matlab
 webwrite('http://192.168.1.129:5490/send-group-msg', 'msg', 'test messages from matlab', 'to_group', '业务通知群')
 ```
 
-3. 发送文件
+3\. 发送文件
 
 文件发送使用了`HTTP`的`multipart form`，但是2014版的`webwrite`不支持。最新版2018a提供了`matlab.net.http.io.MultipartFormProvider`用于支持`multipart form`操作
 
@@ -52,13 +52,13 @@ requestParts(4).Body = '1';
 
 建议使用`ChromeApp`中的`Postman`，可视化操作，不需要去查`Curl`的具体使用细则
 
-1. 模拟发送消息
+1\. 模拟发送消息
 
 ```shell
 curl http://127.0.0.1:5490/send-group-msg -d "msg=@Mr. Xi 测试&to_group=业务通知群" -X POST
 ```
 
-2. 模拟发送文件
+2\. 模拟发送文件
 
 ```shell
 curl -F "file=@/home/pzx/projects/nest-wxbot/test/27_130705105700_1.jpg" -F "to_chat=Nest业务通知群" -F "file_name=test.jpg" http://192.168.1.129:5490/send-file
@@ -67,7 +67,7 @@ curl -F "file=@/home/pzx/projects/nest-wxbot/test/27_130705105700_1.jpg" -F "to_
 
 ## 开发中遇到的问题
 
-1. `requests`不能上传中文文件名的文件。修改`urllib3`目录下的`fields.py`文件的45行
+1\. `requests`不能上传中文文件名的文件。修改`urllib3`目录下的`fields.py`文件的45行
 
 ```python
 # value = '%s*=%s' % (name, value)
