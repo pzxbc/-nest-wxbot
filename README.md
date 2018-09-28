@@ -1,3 +1,13 @@
+## 运行环境
+
+需要Python3版本
+
+```bash
+python -m venv .env
+source .env/bin/activate
+pip install -r requirements.txt
+```
+
 ## 使用
 
 给好友发送消息，需要添加机器人为好友；给群发消息，只需要将机器人拉进群里就好。
