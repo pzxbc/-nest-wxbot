@@ -5,6 +5,9 @@ import itchat
 import threading
 
 itchat_lock = threading.RLock()
+# 给外部用，名字更容易理解
+bot_lock = itchat_lock
+core = itchat
 
 
 @itchat.msg_register(itchat.content.TEXT, isFriendChat=True)
@@ -41,5 +44,18 @@ def send_group_msg(msg, to_group):
     return False
 
 
-itchat.auto_login(hotReload=True, enableCmdQR=2)
-itchat.run(debug=True, blockThread=False)
+def get_receiver(to_chat):
+    with itchat_lock:
+        # 先找好友
+        obj = itchat.search_friends(nickName=to_chat)
+        if obj:
+            return obj[0]['UserName']
+        # 群组
+        obj = itchat.search_chatrooms(name=to_chat)
+        if obj:
+            return obj[0]['UserName']
+    return None
+
+
+core.auto_login(hotReload=True, enableCmdQR=2)
+core.run(debug=True, blockThread=False)

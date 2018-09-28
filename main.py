@@ -6,7 +6,8 @@ import itchat
 
 def main():
     try:
-        bot_app.app.run(host='0.0.0.0', port=5490)
+        bot_app.app.run(
+                host='0.0.0.0', port=5490, debug=True, use_reloader=False)
     except KeyboardInterrupt:
         if itchat.useHotReload:
             itchat.dump_login_status()
