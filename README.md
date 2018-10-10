@@ -28,7 +28,7 @@ webwrite('http://192.168.1.129:5490/send-friend-msg', 'msg', 'test messages from
 2\. 给`业务通知群`发送消息
 
 ```matlab
-webwrite('http://192.168.1.129:5490/send-group-msg', 'msg', 'test messages from matlab', 'to_group', '业务通知群')
+webwrite('http://192.168.1.129:5490/send-group-msg', 'msg', '测试消息', 'to_group', 'Nest业务通知群')
 ```
 
 3\. 发送文件
